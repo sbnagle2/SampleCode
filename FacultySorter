@@ -1,0 +1,27 @@
+
+public class FacultySorter {
+	public static void main (String[]args){
+	int outerCounter = 0;
+	int innerCounter  = 0;
+	String[] facultyNames = {"efron", "mak",   "mcdonnough", "zhai", "edwards"};
+	String[] departments  = {"gslis", "gslis", "gslis",      "cs",   "cs"};
+	while(outerCounter < facultyNames.length) {
+		innerCounter = 0;
+		String outerDepartment = departments[outerCounter];
+		String outerFacultyName = facultyNames[outerCounter];
+		while(innerCounter < facultyNames.length && innerCounter < outerCounter) {
+		   String innerDepartment = departments[innerCounter];
+		   String innerFacultyName = facultyNames[innerCounter];
+		   boolean shareDepartment = outerDepartment.equals(innerDepartment);
+		   boolean sameName = outerFacultyName.equals(innerFacultyName);
+		   if(shareDepartment == true && sameName == false) {
+		     System.out.println("shared: " + 
+		       facultyNames[outerCounter] + ", " + facultyNames[innerCounter]);
+		   }
+		   innerCounter++; 
+		}
+		outerCounter++;
+	}
+
+}
+}
